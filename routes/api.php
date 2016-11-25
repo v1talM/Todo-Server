@@ -17,6 +17,5 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:api');
 
-Route::get('/todos', function(){
-
-});
+Route::get('/todos', 'TodoController@index')->middleware('api');
+Route::post('/todos', 'TodoController@store')->middleware('cors','api');

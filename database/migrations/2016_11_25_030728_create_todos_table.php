@@ -17,7 +17,7 @@ class CreateTodosTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->enum('completed',[0,1,2]);
-            $table->enum('display',[0,1]);
+            $table->enum('display',[0,1])->default('1');
             $table->timestamps();
         });
     }

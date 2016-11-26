@@ -37,14 +37,14 @@ class TodoController extends Controller
     {
         $result = $this->todo->where('id','=',$id)->first();
         $result->update(['completed' => '1']);
-        return response()->json(['title' => $result->title, 'completed' => $result->completed]);
+        return response()->json($result);
     }
 
     public function changeToDone($id)
     {
         $result = $this->todo->where('id','=',$id)->first();
         $result->update(['completed' => '2']);
-        return response()->json(['title' => $result->title, 'completed' => $result->completed]);
+        return response()->json($result);
     }
 
     public function destroy($id)

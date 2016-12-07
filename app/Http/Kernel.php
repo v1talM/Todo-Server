@@ -2,7 +2,8 @@
 
 namespace App\Http;
 
-use App\Http\Middleware\EnableCrossRequestMiddleware;
+use Barryvdh\Cors\HandleCors;
+use Barryvdh\Cors\Stack\CorsService;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -16,6 +17,7 @@ class Kernel extends HttpKernel
      */
     protected $middleware = [
         \Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode::class,
+        HandleCors::class,
     ];
 
     /**

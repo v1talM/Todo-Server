@@ -28,6 +28,6 @@ $factory->define(App\Todo::class, function (Faker\Generator $faker) {
     return [
         'title' => $faker->title,
         'completed' => (string) random_int(0,2),
-        'display' => '1'
+        'user_id' => '1'
     ];
 });

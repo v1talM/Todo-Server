@@ -87,6 +87,32 @@ class TodoController extends Controller
         ]);
     }
 
+    public function delTodoByUser(Request $request, $id)
+    {
+        $user = $this->getUserInfoByRequest($request);
+
+        $todo = $this->todo->whereId($id)->first();
+
+        if($user->id == $todo->user_id){
+            try{
+                $todo->delete();
+            }catch (\Exception $e){
+                return response()->json([
+                    'status' => 422,
+                    'message' => '删除失败,请重试'
+                ]);
+            }
+            return response()->json([
+                'status' => 200,
+                'message' => '删除成功'
+            ]);
+        }
+        return response()->json([
+            'status' => 401,
+            'message' => '删除失败'
+        ]);
+    }
+
     public function changeToUndo(Request $request, $id)
     {
         $user = $this->getUserInfoByRequest($request);

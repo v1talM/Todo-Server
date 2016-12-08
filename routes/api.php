@@ -25,6 +25,7 @@ Route::group(['middleware' => 'auth:api'], function (){
     Route::get('/changeToDoing/{id}', 'TodoController@changeToDoing');
     Route::get('/changeToDid/{id}', 'TodoController@changeToDid');
     Route::post('todo', 'TodoController@addTodoByUser');
+    Route::get('todo/{id}', 'TodoController@delTodoByUser');
 });
 
 Route::post('register', 'Auth\RegisterController@create');

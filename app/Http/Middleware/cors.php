@@ -15,7 +15,7 @@ class cors
      */
     public function handle($request, Closure $next)
     {
-        $domains = ['http://todo.sparki.cn/'];
+        $domains = ['*'];
         $origin = $request->server()['HTTP_ORIGIN'];
         if(isset($request->server()['HTTP_ORIGIN'])) {
             if(in_array($origin, $domains)){

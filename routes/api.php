@@ -28,7 +28,7 @@ Route::group(['middleware' => 'auth:api'], function (){
     Route::get('todo/{id}', 'TodoController@delTodoByUser');
 });
 
-Route::post('register', 'Auth\RegisterController@create');
+Route::post('register', 'Auth\RegisterController@create')->middleware('cors');
 
 Route::group(['prefix' => 'v1', 'middleware' => 'auth:api'], function (){
    Route::get('users', 'UserController@getUserList');
